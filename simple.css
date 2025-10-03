@@ -1,0 +1,82 @@
+/* simple.css - Clean styles for a list of time ranges */
+
+:root{
+  --bg: #ffffff;
+  --card: #f7fafc;
+  --accent: #0ea5a4; /* teal-ish */
+  --muted: #6b7280;
+  --border: #e6eef0;
+  --radius: 8px;
+  --pad: 12px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 14px;
+}
+
+body{
+  background: var(--bg);
+  color: #0f172a;
+  margin: 18px;
+}
+
+/* container for the list */
+.time-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+}
+
+/* each row/card */
+.time-range {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: calc(var(--pad) - 2px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 1px 2px rgba(12, 17, 23, 0.03);
+}
+
+/* left side (label + datetime) */
+.time-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* labels (Start / End) */
+.time-label {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+}
+
+/* actual datetime text in monospace for alignment */
+.time-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  font-size: 13px;
+  color: #0b1220;
+}
+
+/* right side: UTC badge */
+.utc-badge {
+  background: rgba(14,165,164,0.12);
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* responsive: stack on narrow screens */
+@media (max-width: 520px) {
+  .time-range {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .utc-badge { align-self: flex-end; margin-top: 6px; }
+}
